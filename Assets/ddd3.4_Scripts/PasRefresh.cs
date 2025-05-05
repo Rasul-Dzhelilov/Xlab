@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace TZ 
 {
-    public class Refresh : MonoBehaviour
+    public class PasRefresh : MonoBehaviour
     {
         public List<GameObject> tools;
 

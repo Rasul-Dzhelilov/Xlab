@@ -1,15 +1,15 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace TZ
 {
-    public class CloudController : MonoBehaviour
+    public class PasCloudController : MonoBehaviour
     {
         private int m_targetIndex = 0;
         private bool m_moved = false;
         public float moveSpeed = 10f;
-        public Cloud cloud;
+        public PasCloud cloud;
         public Transform[] targets;
         public void Action()
         {

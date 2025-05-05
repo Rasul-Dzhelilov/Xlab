@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{5F4785B7-892C-CBBE-7D7B-5151FFDE65C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -58,14 +59,16 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.2f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ddd3.4_Scripts\Refresh.cs" />
-    <Compile Include="Assets\ddd3.4_Scripts\CloudController.cs" />
+    <Compile Include="Assets\ddd3.4_Scripts\PasCloudController.cs" />
+    <Compile Include="Assets\ddd3.4_Scripts\PasSpawner.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\AlignedGames\Polygonal Foliage Asset Package\Scripts\Utility\FlyCameraBehaviour.cs" />
-    <Compile Include="Assets\ddd3.4_Scripts\Spawner.cs" />
-    <Compile Include="Assets\Generic.cs" />
-    <Compile Include="Assets\ddd3.4_Scripts\Cloud.cs" />
-    <Compile Include="Assets\ddd3.4_Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Generic.cs" />
+    <Compile Include="Assets\ddd3.4_Scripts\PasRefresh.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\ddd3.4_Scripts\PasCloud.cs" />
     <Compile Include="Assets\Scripts\FreeCamera.cs" />
+    <Compile Include="Assets\ddd3.4_Scripts\PasPlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

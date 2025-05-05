@@ -1,14 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace TZ
 {
-    public class PlayerController : MonoBehaviour
+    public class PasPlayerController : MonoBehaviour
     {
-        public Spawner spawner;
-        public CloudController cloudController;
-        public List<Refresh> villagers;
+        public PasSpawner spawner;
+        public PasCloudController cloudController;
+        public List<PasRefresh> villagers;
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.X))
