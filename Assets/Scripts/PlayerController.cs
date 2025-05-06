@@ -9,22 +9,27 @@ namespace TZ
 	{
 		public Spawner Spawner;
 		public CloudController CloudController;
+		public List<Refresh> Villagers;
 
 		void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.X))
 			{
-				Spawner.Spawn();
 				Debug.Log("X pressed");
+				Spawner.Spawn();
 			}
 			if (Input.GetKeyDown(KeyCode.Z))
 			{
-				CloudController.Action();
 				Debug.Log("Z pressed");
+				CloudController.Action();
 			}
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				Debug.Log("Space pressed");
+				foreach (var item in Villagers)
+				{
+					item.ChangeTool();
+				}
 			}
 		}
 	}
