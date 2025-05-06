@@ -8,11 +8,6 @@ namespace TZ
 	{
 		public GameObject Prefab;
 
-		void Start()
-		{
-
-		}
-
 		public void Spawn()
 		{
 			if (Prefab == null)

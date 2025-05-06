@@ -8,8 +8,7 @@ namespace TZ
 	public class PlayerController : MonoBehaviour
 	{
 		public Spawner Spawner;
-
-
+		public CloudController CloudController;
 
 		void Update()
 		{
@@ -20,6 +19,7 @@ namespace TZ
 			}
 			if (Input.GetKeyDown(KeyCode.Z))
 			{
+				CloudController.Action();
 				Debug.Log("Z pressed");
 			}
 			if (Input.GetKeyDown(KeyCode.Space))
