@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TZ
 {
-	public class PlayerController : MonoBehaviour
+	public class PlayerController_3Unit : MonoBehaviour
 	{
 		public Spawner Spawner;
 		public CloudController CloudController;

@@ -16,7 +16,7 @@ namespace TZ
 			{
 				if(!other.IsAffect)
 				{
-					OnCollisionStone?.Invoke();
+					GameEvents.CollisionStonesInvoke(collision);
 				}
 			}
 		}

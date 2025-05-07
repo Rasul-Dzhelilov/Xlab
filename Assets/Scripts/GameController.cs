@@ -1,18 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+namespace TZ
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public class GameController : MonoBehaviour
+	{
+		public MainMenuState MainMenuState;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+		void Start()
+		{
+			MainMenuState.gameObject.SetActive(true);
+		}
+	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TZ;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Golf
 {
@@ -11,27 +12,13 @@ namespace Golf
 		public float DelayMax = 2f;
 		public float DelayMin = 0.5f;
 		public float DelayStep = 0.1f;
+		public int Score = 0;
+		public int HightScore = 0;
 
 		private float delay = 0.5f;
 		private bool isGameOver = false;
 		private float lastSpawnerTime = 0;
-
-
-		//public int score = 0;
-
-		//public int hightScore = 0;
-		//private float m_delay = 0.5f;
-
-		private List<GameObject> m_stones = new List<GameObject>(16);
-
-		public void ClearStone()
-		{
-			foreach (var stone in m_stones)
-			{
-				Destroy(stone);
-			}
-			m_stones.Clear();
-		}
+		private List<GameObject> stones = new List<GameObject>(16);
 
 		public void Start()
 		{
@@ -42,16 +29,14 @@ namespace Golf
 		}
 		private void OnEnable()
 		{
-			Stone.OnCollisionStone += GameOver;
-			//GameEvents.onStickHit += OnStickHit;
-			//score = 0;
+			GameEvents.OnStickHit += OnStickHit;
+			Score = 0;
 
 		}
 
 		private void OnDisable()
 		{
-			Stone.OnCollisionStone -= GameOver;
-			//GameEvents.onStickHit -= OnStickHit;
+			GameEvents.OnStickHit -= OnStickHit;
 
 		}
 		public void RefreshDelay()
@@ -60,11 +45,20 @@ namespace Golf
 			DelayMax = Mathf.Max(DelayMin, DelayMax - DelayStep);
 		}
 
+		private void OnStickHit()
+		{
+			Score++;
+			HightScore = Mathf.Max(HightScore, Score);
+
+			Debug.Log($"score: {Score} - hightScore: {HightScore}");
+		}
+
 		private void Update()
 		{
 			if (Time.time >= lastSpawnerTime + delay)
 			{
-				Spawner.Spawn();
+				var stone = Spawner.Spawn();
+				stones.Add(stone);
 				lastSpawnerTime = Time.time;
 
 				RefreshDelay();
@@ -77,17 +71,14 @@ namespace Golf
 			enabled = true;
 		}
 
-
-
-		/*private void OnStickHit()
+		public void ClearStones()
 		{
-			score++;
-			hightScore = Mathf.Max(hightScore, score);
-
-			Debug.Log($"score: {score} - hightScore: {hightScore}");
-		}*/
-
-
+			foreach (var stone in stones)
+			{
+				Destroy(stone);
+			}
+			stones.Clear();
+		}
 
 		/*
 

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 	public Transform Helper;
 	public float RangeStickRot = -40f;
 	public float SpeedStickRot = 500f;
-	public float KickPower = 25f;
+	public float KickPower = 200f;
 
 	private Vector3 lastPos;
 	private bool isDown = false;
@@ -18,8 +18,6 @@ public class Player : MonoBehaviour
 	private void Update()
 	{
 		lastPos = Helper.position;
-
-		isDown = Input.GetMouseButton(0);
 
 		if (Stick == null)
 		{
@@ -36,6 +34,11 @@ public class Player : MonoBehaviour
 		Stick.localRotation = rot;
 	}
 
+	public void SetDown(bool value)
+	{
+		isDown = value;
+	}
+
 	public void OnCollisionStick(Collider collider)
 	{
 		if(collider.TryGetComponent(out Rigidbody body))
@@ -44,9 +47,10 @@ public class Player : MonoBehaviour
 			var dir = (Helper.position - lastPos).normalized;
 			body.AddForce(Vector3.left * KickPower, ForceMode.Impulse);
 
-			if(collider.TryGetComponent(out Stone stone))
+			if(collider.TryGetComponent(out Stone stone) && !stone.IsAffect)
 			{
 				stone.IsAffect = true;
+				GameEvents.StickHit();
 			}
 		}
 
