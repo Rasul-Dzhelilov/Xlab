@@ -16,7 +16,7 @@ namespace TZ
 			if (Input.GetKeyDown(KeyCode.X))
 			{
 				Debug.Log("X pressed");
-				Spawner.Spawn();
+				//Spawner.Spawn();
 			}
 			if (Input.GetKeyDown(KeyCode.Z))
 			{
